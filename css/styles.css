@@ -10238,6 +10238,15 @@ form .row:first-child .floating-label-form-group {
 .copyright {
   background-color: #1a252f;
 }
-.close {
-  padding-top :40px;
+
+.hot{
+ background-color:red;
+}
+.cop{
+  background-color: blue;
+}
+.containertwo{
+  width: 500px;
+  margin: 20px auto;
+  padding-left :20px;
 }
