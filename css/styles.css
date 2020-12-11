@@ -10271,20 +10271,29 @@ form .row:first-child .floating-label-form-group {
 }
 
 /* Next & previous buttons */
-.prev,
+
+
+}
+.prev {
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  font-size: 40px;
+  border-radius: 3px;
+  user-select: none;
+  -webkit-user-select: none;
+  background-color: black;
+  padding-top: 30px;
+}
 .next {
   cursor: pointer;
-  position: absolute;
-  top: 40%;
-  width: auto;
-  padding: 16px;
-  margin-top: -50px;
   color: white;
   font-weight: bold;
   font-size: 20px;
-  border-radius: 0 3px 3px 0;
+  border-radius: 3px;
   user-select: none;
   -webkit-user-select: none;
+  background-color: black;
 }
 
 /* Position the "next button" to the right */
