@@ -241,7 +241,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal1Label">Log Cabin</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal1Label">NEUROFORCE</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -249,9 +249,92 @@
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/cabin.png" alt="" />
+                                    <!-- Container for the image gallery -->
+<div class="container">
+
+    <!-- Full-width images with number text -->
+    <div class="mySlides">
+      <div class="numbertext">1 / 6</div>
+        <img src="assets/img/portfolio/project1/project1pic1.png" style="width:100%">
+    </div>
+  
+    <div class="mySlides">
+      <div class="numbertext">2 / 6</div>
+        <img src="img_5terre_wide.jpg" style="width:100%">
+    </div>
+  
+    <div class="mySlides">
+      <div class="numbertext">3 / 6</div>
+        <img src="img_mountains_wide.jpg" style="width:100%">
+    </div>
+  
+    <div class="mySlides">
+      <div class="numbertext">4 / 6</div>
+        <img src="img_lights_wide.jpg" style="width:100%">
+    </div>
+  
+    <div class="mySlides">
+      <div class="numbertext">5 / 6</div>
+        <img src="img_nature_wide.jpg" style="width:100%">
+    </div>
+  
+    <div class="mySlides">
+      <div class="numbertext">6 / 6</div>
+        <img src="img_snow_wide.jpg" style="width:100%">
+    </div>
+  
+    <!-- Next and previous buttons -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  
+    <!-- Image text -->
+    <div class="caption-container">
+      <p id="caption"></p>
+    </div>
+  
+    <!-- Thumbnail images -->
+    <div class="row">
+      <div class="column">
+        <img class="demo cursor" src="assets/img/portfolio/project1/project1pic1.png" style="width:100%" onclick="currentSlide(1)" alt="The Woods">
+      </div>
+      <div class="column"> 
+        <img class="demo cursor" src="img_5terre.jpg" style="width:100%" onclick="currentSlide(2)" alt="Cinque Terre">
+      </div>
+      <div class="column">
+        <img class="demo cursor" src="img_mountains.jpg" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
+      </div>
+      <div class="column">
+        <img class="demo cursor" src="img_lights.jpg" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
+      </div>
+      <div class="column">
+        <img class="demo cursor" src="img_nature.jpg" style="width:100%" onclick="currentSlide(5)" alt="Nature and sunrise">
+      </div> 
+      <div class="column">
+        <img class="demo cursor" src="img_snow.jpg" style="width:100%" onclick="currentSlide(6)" alt="Snowy Mountains">
+      </div>
+    </div>
+  </div>
+                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/project1/project1pic1.png" alt="" />
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                                    <p class="mb-5 text-left">
+                                        CLIENT</br> Neurophysiological Imaging and Modeling Laboratory (NIML) </br> </br>
+                                        BACKGROUND</br>	Delivery of drugs to the spinal cord through the cerebrospinal fluid can provide a direct and effective route for    management of pain in patients with chronic neurological disorders. However, design and optimization of drug delivery  technology (e.g. infusion pumps) is difficult since in vivo studies are expensive to conduct on large animals that have similar size as humans.</br> </br>
+                                        OBJECTIVE</br> 	To create a compact, low cost, oscillatory-flow pump which could produce a realistic cerebrospinal fluid (CSF) flow conditions within a given range of human/animal cerebrospinal
+                                         to be connected to a physical model of subarachnoid space.</br></br>
+                                        MAIN RESPONSIBILITY </br>	Design and prototype internal mechanical system and overall assembly.</br> </br>
+                                        DESIGN SPECIFICATION </br> Compact, Fit in your pocket, Adjustable Volume, MRI-compatible, Easy to use, 5 V trigger, Low cost, Consistent (Reliability +- 5%),  Bleed system for piping, Adjustable Frequency (30-230 BPM), Simple interface.</br></br>
+                                        
+                                            APPROACH </br>
+                                            - For designing the assembly, I used Solidworks for its motion and animation capability.</br> -To create our initial prototype, we used a 3d printer (Ultimaker 2+) for rapid prototyping due to time constraint.</br>
+- Different mechanical systems were explored to create the oscillatory flow that we wanted while still produce a product that is within the size constraint.</br>
+- Different 3d printing materials were tested to create a durable product.</br>
+- Use a controller pre-built controller hardware.</br>
+- Use Fourier Series to obtain function.</br> </br> 
+RESULT</br>
+A complete working model was developed in Solidworks CAD software, all specifications were met except for MRI- compatibility. Our product ended up costing around $500. Initially, we decided that our final product would be built using a 3d printer but decided later to purchase pre-built case for the outer shell.  We made this decision for a number of reasons; time constraint; cost; weight. The whole assembly of the first prototype and 1 part on the final product (a connector to the syringe and the linear actuator) was created using Ultimaker 2+. Polycarbonate was chosen for the material due to its strength and durability.  Scotch and Yoke mechanism connected to a dc motor was originally chosen but we eventually chose to purchase a linear actuator. The linear actuator was chosen due to its size and a significantly better wave output. We use Arduino DUE for the microcontroller board. Fourier series analysis was used on raw data provided by NIML to obtain the function that mimics the Cerebrospinal fluid flow. A potentiometer and a pressure transducer were used to compare to compare reading of the position of the linear actuator and the wave produced inside the spinal column. 
+
+
+                                        </p>
                                     <button class="btn btn-primary" data-dismiss="modal">
                                         <i class="fas fa-times fa-fw"></i>
                                         Close Window
