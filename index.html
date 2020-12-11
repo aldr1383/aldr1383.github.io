@@ -250,12 +250,12 @@
                                     </div>
                                     <!-- Portfolio Modal - Image-->
                                     <!-- Container for the image gallery -->
-<div class:"container">
+<div class="container">
 
     <!-- Full-width images with number text -->
     <div class="row">
-    <a class="prev col-2" onclick="plusSlides(-1)">&#10094;</a>
-    <div class="col-8">
+
+    <div class="col-offset-auto">
     <div class="mySlides">
       <div class="numbertext">1 / 2</div>
         <img class="img-fluid rounded" src="assets/img/portfolio/project1/project1pic1.png">
@@ -267,14 +267,16 @@
     </div>
 </div>
     <!-- Next and previous buttons -->
-    <a class="next col-2" onclick="plusSlides(1)">&#10095;</a>
+    
     </div>
-</div>
-
-
+<div class="row">
+    <a class="prev col-6" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next col-6" onclick="plusSlides(1)">&#10095;</a>
     <!-- Thumbnail images -->
-   
-  </div>
+   </div>
+</br>
+</br>
+  
                                     
                                     <!-- Portfolio Modal - Text-->
                                     <p class="mb-5 text-left">
@@ -296,7 +298,9 @@ A complete working model was developed in Solidworks CAD software, all specifica
 
 
                                         </p>
+                                        </div>
                                     <button class="btn btn-primary" data-dismiss="modal">
+                                    
                                         <i class="fas fa-times fa-fw"></i>
                                         Close Window
                                     </button>

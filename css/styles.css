@@ -10280,11 +10280,11 @@ form .row:first-child .floating-label-form-group {
   cursor: pointer;
   color: black;
   font-weight: bold;
-  font-size: 40px;
+  font-size: 50px;
   border-radius: 3px;
   user-select: none;
+  width:auto;
   -webkit-user-select: none;
- 
 }
 .next {
   margin-right: 0px;
@@ -10294,9 +10294,10 @@ form .row:first-child .floating-label-form-group {
   cursor: pointer;
   color: black;
   font-weight: bold;
-  font-size: 40px;
+  font-size: 50px;
   border-radius: 3px;
   user-select: none;
+  width:auto;
   -webkit-user-select: none;
   
 }
