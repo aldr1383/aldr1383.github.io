@@ -3,6 +3,46 @@
     * Copyright 2013-2020 Start Bootstrap
     * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-freelancer/blob/master/LICENSE)
     */
+
+   import React from 'react'
+   import ReactDOM from 'react-dom'
+   
+   import { Provider } from 'react-redux'
+   import store from './store'
+   
+   
+   const rootElement = document.getElementById('root')
+   ReactDOM.render(
+     <Provider store={store}>
+       <App />
+     </Provider>,
+     rootElement
+   )
+   import { connect } from 'react-redux'
+   import { increment, decrement, reset } from './actionCreators'
+   
+   // const Counter = ...
+   
+   const mapStateToProps = (state /*, ownProps*/) => {
+     return {
+       counter: state.counter
+     }
+   }
+   
+   const mapDispatchToProps = { increment, decrement, reset }
+   
+   export default connect(
+     mapStateToProps,
+     mapDispatchToProps
+   )(Counter)
+   
+
+
+
+
+
+
+
     (function($) {
     "use strict"; // Start of use strict
   
@@ -98,8 +138,107 @@ function showSlides(n) {
 
 }
 
+//RANDOM QUOTE CHALLENGE APP
+
+// Redux:
+const QUOTE = 'QUOTE';
+
+const changeQuote = () => {
+  return {
+    type: QUOTE };
+
+};
+let quote = [["A writer is someone for whom writing is more difficult than it is for other people", "Thomas Mann"], 
+["A good novel tells us the truth about its hero; but a bad novel tells us the truth about its author.", "G.K. Chesterton"], 
+["Anybody who has survived his childhood has enough information about life to last him the rest of his days.", "Flannery O'connor"], 
+["A story is a letter that the author writes to himself, to tell himself things that he would be unable to discover otherwise.", "Carlos Ruiz Zafón"], 
+["Authors like cats because they are such quiet, lovable, wise creatures, and cats like authors for the same reasons.", "Robertson Davies"]];
+
+let hop = [];
+let m = Math.floor(Math.random() * quote.length);
+const quoteChanger = (state = m, action) => {
+  let random = Math.floor(Math.random() * quote.length);
+  if (random != m) {
+    m = random;
+    return quote[m];
+  } else
+  {
+    while (random == m) {
+      random = Math.floor(Math.random() * quote.length);
+    }
+    m = random;
+    return quote[m];
+  }
+};
+
+const store = Redux.createStore(quoteChanger);
+
+// React:
+class Presentational extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      input: '' };
+
+    this.changeQuote = this.changeQuote.bind(this);
+    this.authorIs = this.authorIs.bind(this);
+
+  }
+  changeQuote() {
+    this.props.submitNewQuote();
+  }
+  authorIs() {
+    this.props.submitNewAuthor();
+  }
+  render() {
+    return (
+      React.createElement("div", null,
+      React.createElement("div", { id: "buttons", className: "row text-center col-lg-6 col-lg-offset-3" },
+      React.createElement("button", { id: "new-quote", className: "btn btn-primary btn-sm col-xs-3 col-xs-offset-2", onClick: this.changeQuote }, "Quote"),
+      React.createElement("a", { id: "tweet-quote", href: "twitter.com/intent/tweet", className: "col-xs-3 col-xs-offset-2" }, React.createElement("i", { className: "fab fa-twitter fa-lg" }))),
+
+      React.createElement("div", { id: "main" },
+      React.createElement("div", { className: "row" },
+      React.createElement("h1", { className: "text-center col-lg-6 col-lg-offset-3", id: "text" }, this.props.quotes[0])),
+
+      React.createElement("div", { className: "row" },
+      React.createElement("p", { className: "text-center", id: "author" }, this.props.quotes[1])))));
 
 
+
+
+  }}
+;
+
+// React-Redux
+const Provider = ReactRedux.Provider;
+const connect = ReactRedux.connect;
+
+const mapStateToProps = state => {
+  return { quotes: state };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    submitNewQuote: () => {
+      dispatch(changeQuote());
+    } };
+
+};
+
+const Container = connect(mapStateToProps, mapDispatchToProps)(Presentational);
+
+class AppWrapper extends React.Component {
+  render() {
+    return (
+      React.createElement(Provider, { store: store },
+      React.createElement(Container, null)));
+
+
+  }}
+;
+
+ReactDOM.render(React.createElement(AppWrapper, null), document.getElementById('quote-box'));
 
 
 
