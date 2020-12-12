@@ -10280,7 +10280,7 @@ form .row:first-child .floating-label-form-group {
   cursor: pointer;
   color: black;
   font-weight: bold;
-  font-size: 50px;
+  font-size: 30px;
   border-radius: 3px;
   user-select: none;
   width:auto;
@@ -10294,7 +10294,7 @@ form .row:first-child .floating-label-form-group {
   cursor: pointer;
   color: black;
   font-weight: bold;
-  font-size: 50px;
+  font-size: 30px;
   border-radius: 3px;
   user-select: none;
   width:auto;
