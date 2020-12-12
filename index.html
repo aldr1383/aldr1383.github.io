@@ -496,7 +496,7 @@ A complete working model was developed in Solidworks CAD software, all specifica
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - random quote generator app from codepen-->
-                                    <p class="codepen" data-height="501" data-theme-id="light" data-default-tab="html,result" data-user="aldr1383" data-slug-hash="XWjjBBQ" style="height: 501px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Random Quote Challenge">
+                                    <p class="codepen" data-height="501" data-theme-id="light" data-default-tab="result" data-user="aldr1383" data-slug-hash="XWjjBBQ" style="height: 501px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Random Quote Challenge">
                                         <span>See the Pen <a href="https://codepen.io/aldr1383/pen/XWjjBBQ">
                                         Random Quote Challenge</a> by aldr1383 (<a href="https://codepen.io/aldr1383">@aldr1383</a>)
                                         on <a href="https://codepen.io">CodePen</a>.</span>
@@ -504,7 +504,38 @@ A complete working model was developed in Solidworks CAD software, all specifica
                                       <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
                                    
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                                    <p class="mb-5 text-left">  Languages:</br>
+                                                                CSS, HTML, JAVASCRIPT, REACT, REDUX, REACT REDUX</br>
+                                                                </br> 
+                                                                Project Goals:</br>
+                                                                - Create a random quote generator using react and redux</br>
+                                                                - When page is first loaded, the quote shown has to be random.
+                                                                
+                                                                </br>
+                                                                Result & comment :</br>
+                                                                Having not enough experience in building applications, I had a hard time trying to set react and redux. I am still finding my ways around VS CODE, so I used codepen instead. Turns it worked pretty well and the embed feature is definitely a bonus.</br>
+                                                                I used javascript Math.random function and used the that function in the original state to achieve goal number to. You can see  that this works if you reload this page or click the rerun button on the bottom of the display. </br>
+                                                                The second problem which I found interesting was the code is not supposed to be completely random. There is a caveat, it cannot repeat itself. So, to solve this, I included an if statement in the variable quoteChange.</br>
+                                                                let m = Math.floor(Math.random()*quote.length)
+                                                                const quoteChanger = (state = m, action) => {</br>
+                                                                let random = Math.floor(Math.random()*quote.length)</br>
+                                                                if (random != m) {</br>
+                                                                m = random;</br>
+                                                                return quote[m]</br>
+                                                                }</br>
+                                                                else {</br>
+                                                                    while (random == m) {</br>
+                                                                      random = Math.floor(Math.random()*quote.length) </br>
+                                                                    }</br>
+                                                                   m = random;</br>
+                                                                    return quote[m];</br>
+                                                                 }</br>
+                                                                };</br> </br>
+                                                                
+                                                                
+
+                                                            
+                                                            </p>
                                     <button class="btn btn-primary" data-dismiss="modal">
                                         <i class="fas fa-times fa-fw"></i>
                                         Close Window
