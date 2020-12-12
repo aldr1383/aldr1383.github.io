@@ -501,7 +501,7 @@ A complete working model was developed in Solidworks CAD software, all specifica
                                         Random Quote Challenge</a> by aldr1383 (<a href="https://codepen.io/aldr1383">@aldr1383</a>)
                                         on <a href="https://codepen.io">CodePen</a>.</span>
                                       </p>
-                                      <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+                                      <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script></br>
                                    
                                     <!-- Portfolio Modal - Text-->
                                     <p class="mb-5 text-left">  Languages:</br>
@@ -509,13 +509,15 @@ A complete working model was developed in Solidworks CAD software, all specifica
                                                                 </br> 
                                                                 Project Goals:</br>
                                                                 - Create a random quote generator using react and redux</br>
-                                                                - When page is first loaded, the quote shown has to be random.
+                                                                - When page is first loaded, the quote shown has to be random.</br>
                                                                 
                                                                 </br>
                                                                 Result & comment :</br>
                                                                 Having not enough experience in building applications, I had a hard time trying to set react and redux. I am still finding my ways around VS CODE, so I used codepen instead. Turns it worked pretty well and the embed feature is definitely a bonus.</br>
                                                                 I used javascript Math.random function and used the that function in the original state to achieve goal number to. You can see  that this works if you reload this page or click the rerun button on the bottom of the display. </br>
-                                                                The second problem which I found interesting was the code is not supposed to be completely random. There is a caveat, it cannot repeat itself. So, to solve this, I included an if statement in the variable quoteChange.</br>
+                                                                The second problem which I found interesting was the code is not supposed to be completely random. There is a caveat, it cannot repeat itself. So, to solve this, I included an if statement in the variable quoteChange.</br></br>
+                                                                
+                                                                Here is the quotechanger constant which you can find in the js script.</br></br>
                                                                 let m = Math.floor(Math.random()*quote.length)
                                                                 const quoteChanger = (state = m, action) => {</br>
                                                                 let random = Math.floor(Math.random()*quote.length)</br>
