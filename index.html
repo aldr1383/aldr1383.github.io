@@ -306,20 +306,21 @@
                  
                                     <!-- Portfolio Modal - Text-->
                                     <p class="mb-5 text-left">
-                                        CLIENT</br> Neurophysiological Imaging and Modeling Laboratory (NIML) </br> </br>
-                                        BACKGROUND</br>	Delivery of drugs to the spinal cord through the cerebrospinal fluid can provide a direct and effective route for    management of pain in patients with chronic neurological disorders. However, design and optimization of drug delivery  technology (e.g. infusion pumps) is difficult since in vivo studies are expensive to conduct on large animals that have similar size as humans.</br> </br>
-                                        OBJECTIVE</br> 	To create a compact, low cost, oscillatory-flow pump which could produce a realistic cerebrospinal fluid (CSF) flow conditions within a given range of human/animal cerebrospinal
+                                    </br><b>Client</b></br>
+                                         Neurophysiological Imaging and Modeling Laboratory (NIML) </br> </br>
+                                         <b>Background</b></br>	Delivery of drugs to the spinal cord through the cerebrospinal fluid can provide a direct and effective route for    management of pain in patients with chronic neurological disorders. However, design and optimization of drug delivery  technology (e.g. infusion pumps) is difficult since in vivo studies are expensive to conduct on large animals that have similar size as humans.</br> </br>
+                                         <b>Objective</b></br> 	To create a compact, low cost, oscillatory-flow pump which could produce a realistic cerebrospinal fluid (CSF) flow conditions within a given range of human/animal cerebrospinal
                                          to be connected to a physical model of subarachnoid space.</br></br>
-                                        MAIN RESPONSIBILITY </br>	Design and prototype internal mechanical system and overall assembly.</br> </br>
-                                        DESIGN SPECIFICATION </br> Compact, Fit in your pocket, Adjustable Volume, MRI-compatible, Easy to use, 5 V trigger, Low cost, Consistent (Reliability +- 5%),  Bleed system for piping, Adjustable Frequency (30-230 BPM), Simple interface.</br></br>
+                                         <b>Role</b> </br>	Design and prototype internal mechanical system and overall assembly.</br> </br>
+                                         <b>Design specifications</b> </br> Compact, Fit in your pocket, Adjustable Volume, MRI-compatible, Easy to use, 5 V trigger, Low cost, Consistent (Reliability +- 5%),  Bleed system for piping, Adjustable Frequency (30-230 BPM), Simple interface.</br></br>
                                         
-                                            APPROACH </br>
+                                         <b>Approach</b></br>
                                             - For designing the assembly, I used Solidworks for its motion and animation capability.</br> -To create our initial prototype, we used a 3d printer (Ultimaker 2+) for rapid prototyping due to time constraint.</br>
 - Different mechanical systems were explored to create the oscillatory flow that we wanted while still produce a product that is within the size constraint.</br>
 - Different 3d printing materials were tested to create a durable product.</br>
 - Use a controller pre-built controller hardware.</br>
 - Use Fourier Series to obtain function.</br> </br> 
-RESULT</br>
+<b>Result</b></br>
 A complete working model was developed in Solidworks CAD software, all specifications were met except for MRI- compatibility. Our product ended up costing around $500. Initially, we decided that our final product would be built using a 3d printer but decided later to purchase pre-built case for the outer shell.  We made this decision for a number of reasons; time constraint; cost; weight. The whole assembly of the first prototype and 1 part on the final product (a connector to the syringe and the linear actuator) was created using Ultimaker 2+. Polycarbonate was chosen for the material due to its strength and durability.  Scotch and Yoke mechanism connected to a dc motor was originally chosen but we eventually chose to purchase a linear actuator. The linear actuator was chosen due to its size and a significantly better wave output. We use Arduino DUE for the microcontroller board. Fourier series analysis was used on raw data provided by NIML to obtain the function that mimics the Cerebrospinal fluid flow. A potentiometer and a pressure transducer were used to compare to compare reading of the position of the linear actuator and the wave produced inside the spinal column. 
 
 
@@ -360,20 +361,21 @@ A complete working model was developed in Solidworks CAD software, all specifica
                                     <img class="img-fluid" src="assets/img/portfolio/project2/project2pic1.png" alt="" />
                                     <!-- Portfolio Modal - Text-->
                                     <p class="mb-5 text-left">
-                                        Client</br>	
+                                    </br> <b>Client</b></br>	
                                         Neurophysiological Imaging and Modeling Laboratory (NIML)</br></br>
     
-                                        Background</br>
+                                        <b>Background</b></br>
                                         The ongoing research at the Neurophysiological Imaging and Modeling Laboratory models CSF system by computer (in silico), physical model (in vitro) and virtual reality. A detailed in vitro model would allow for testing of medical devices. Many companies are developing potentially therapies for treatment of CNS disorders such as Alzheimer’s Amyotrophic Lateral Sclerosis (ALS), Parkinson’s and autism. These therapies for brain disorders require extremely expensive and ethically charged non-human primate studies to reach clinical use. Such expenses make detailed testing and optimization of brain therapeutic systems and medications difficult. To do that, a cost-effective system that accurately represents the CSF anatomy and flow is needed.</br></br>
                                         
-                                        Introduction </br>
+                                        <b>Introduction</b> </br>
                                         The cerebrospinal Fluid (CSF) is a clear water-like fluid that bathes the brain and the spinal cord and also resides in a series of complex interconnected spaces within the brain called ventricles and cisterns. Understanding the CSF system is crucial for diagnostic of central nervous system (CNS) diseases. CNS disease can be difficult to treat because of the blood brain barrier (BBB) which prevent drugs that could potentially help CNS disorder from entering the brain. One way to bypass BBB is through injection of drugs to CSF. Therefore, cerebrospinal fluid is potentially and important route to deliver drugs to the CNS.</br> </br>
-                                        Method</br>	Ultra-high resolution (300 um isotropic) MRI -> Anatomical Review -> segmentation in ITK-SNAP -> Processing in Blender -> Stereolithography 3-D printing </br>
+                                        
+                                        <b>Method</b></br>	Ultra-high resolution (300 um isotropic) MRI -> Anatomical Review -> segmentation in ITK-SNAP -> Processing in Blender -> Stereolithography 3-D printing </br>
                                         1 .The 3D model of the cortical subarachnoid space, ventricles, and cisterns of the brain was created using Ultra-high resolution (300 um isotropic) MRI scans (A). The 3D model was segmented using a medical image processing software called ITK-SNAP with consistent segmentation process leaving 2 pixels unsegmented to prevent over segmentation (B). The location and dimension of the intracranial CSF
                                         system was determined from a variety of neurological peer-reviewed papers. The model was then exported as standard tessellation language files and imported into an open source modelling program.</br>
                                         2.	The geometry will then be smoothened to make it more anatomically realistic in Blender. Watertight connections will be added to the model that will be used to attach tubing to the system. The model will then be split into pieces that can be readily 3D printed and assembled. The segmented model will be printed using stereolithography (SLA) 3-D printing to create a high-resolution physical model of the intracranial system.</br> </br>
-                                        Preliminary result geometry</br>	A 3D model of the intracranial cerebrospinal fluid system including the cortical space created from an Ultra-high-resolution (300 um isotropic) MRI scans. The images were segmented in ITK-SNAP with a consistent segmentation process.</br></br>
-                                        Future work	</br>	1. Process current 3D geometry:</br>
+                                        <b>Preliminary result geometry</b></br>	A 3D model of the intracranial cerebrospinal fluid system including the cortical space created from an Ultra-high-resolution (300 um isotropic) MRI scans. The images were segmented in ITK-SNAP with a consistent segmentation process.</br></br>
+                                        <b>Future work</b>	</br>	1. Process current 3D geometry:</br>
 -	Smooth current 3D geometry using blender making it more anatomically realistic.</br>
 -	Add connection to the model for tubing system. Split 3d model for printing.</br>
 2. 3D printing:</br>
@@ -431,7 +433,7 @@ A complete working model was developed in Solidworks CAD software, all specifica
                                     <img class="img-fluid rounded mb-5" src="assets/img/portfolio/project 3/project3pict1.png" alt="" />
                                     <!-- Portfolio Modal - Text-->
                                     <p class="mb-5 text-left">
-                                        Objective</br>
+                                        <b>Objective</b></br>
                                         	To create a complete Solidworks model, engineering drawing and animation of a diesel engine. The Solidworks model consist of 9 subassemblies; bottom end, top end, cooling pump, injector, glow plug, plunger, governor, radiator, and glow plug indicator. 
                                         </p>
 
@@ -491,16 +493,16 @@ A complete working model was developed in Solidworks CAD software, all specifica
                                       <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script></br>
                                    
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-5 text-left">  Languages:</br>
-                                                                CSS, HTML, JAVASCRIPT, REACT, REDUX, REACT REDUX</br>
+                                    <p class="mb-5 text-left">  <b>Languages</b></br>
+                                                                Javascript, React, Redux, CSS, and HTML.</br>
                                                                 </br> 
-                                                                Project Goals:</br>
+                                                                <b>Project goals</b></br>
                                                                 - Create a random quote generator using react and redux</br>
                                                                 - When page is first loaded, the quote shown has to be random.</br>
                                                                 
                                                                 </br>
-                                                                Result & comment :</br>
-                                                                Having not enough experience in building applications, I had a hard time trying to set react and redux. I am still finding my ways around VS CODE, so I used codepen instead. Turns it worked pretty well and the embed feature is definitely a bonus.</br>
+                                                                <b>Results</b></br>
+                                                                Having not enough experience in building applications, I had a hard time trying to set react and redux. I am still finding my ways around VS CODE, so I used codepen instead. Turns it worked pretty well and the embed feature is definitely a bonus.</br></br>
                                                                 I used javascript Math.random function and used the that function in the original state to achieve goal number to. You can see  that this works if you reload this page or click the rerun button on the bottom of the display. </br>
                                                                 The second problem which I found interesting was the code is not supposed to be completely random. There is a caveat, it cannot repeat itself. So, to solve this, I included an if statement in the variable quoteChange.</br></br>
                                                                 
@@ -558,7 +560,7 @@ A complete working model was developed in Solidworks CAD software, all specifica
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- code pen embed markdown previewer app-->
-                                    <p class="codepen" data-height="676" data-theme-id="light" data-default-tab="result" data-user="aldr1383" data-slug-hash="qBaRYmd" style="height: 676px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Mark Down Previewer">
+                                    <p class="codepen" data-height="556" data-theme-id="light" data-default-tab="result" data-user="aldr1383" data-slug-hash="qBaRYmd" style="height: 556px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Mark Down Previewer">
                                         <span>See the Pen <a href="https://codepen.io/aldr1383/pen/qBaRYmd">
                                         Mark Down Previewer</a> by aldr1383 (<a href="https://codepen.io/aldr1383">@aldr1383</a>)
                                         on <a href="https://codepen.io">CodePen</a>.</span>
@@ -582,8 +584,11 @@ A complete working model was developed in Solidworks CAD software, all specifica
                                     To learn more about the syntax you can click <a href="https://www.markdownguide.org/basic-syntax/">here</a></br>
                                     </br>
                                     <b>Solving the problem</b></br>
-                                    I used react-redux to create the interface and state management.  
-                                    
+                                    I used react-redux to create the interface and state management.</br>
+                                    </br>
+                                    I created a variable called <i>initial</i> to store the initial markdown text containing all of the requirements when the page first load. When a change is detected in the text area, an action is dispatched and record the value. The value is then processed using the marked() function.</br>
+                                    </br>  
+                                    I imported a marked library from <a href=" https://cdnjs.com/libraries/marked">cdnjs</a>. Initial state is set to equal the variable <i>initial</i>. At default state, the function marked is used on this initial state<i>return marked(state)</i> and upon change marked() is used on the new state, which is the text in the textarea with any modifications made to it,<i> return marked action message. </i>
 
 
                             
