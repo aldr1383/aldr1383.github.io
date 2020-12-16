@@ -652,14 +652,20 @@ A complete working model was developed in Solidworks CAD software, all specifica
                                 - When a .drum-pad is triggered, a string describing the associated audio clip is displayed as the inner text of the #display element (each string must be unique).</br>
                                 </br>
                                 <b> Solving the problem</b> </br>
-                                Since the string inside the button matches the id of the audio child element, I was able to target the audio element and add<p class="codepen" data-height="435" data-theme-id="light" data-default-tab="result" data-user="aldr1383" data-slug-hash="wvzJoGE" style="height: 435px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Build a drum machine">
+                                Since the string inside the button matches the id of the audio child element, I was able to target the audio element and used .play() to play the audio
                                 using the following code </br>
                                 </br>
-                                 </br>
+                                <i>document.getElementById(event.currentTarget.textContent)</i> </br>
                                 </br>
-                                Adding .play() and inserting this code into handleClick() allows the user to play the audio element associated with the button. The description of the audio clip is in the id attribute of the button element. In the following line of codes, the id(description) is set to a variable called <i>kop</i> and passed as the new state which is then displayed below the buttons.
+                                Adding .play() and inserting this code into handleClick() allows the user to play the audio element associated with the button. The description of the audio clip is in the id of the button element allowing me to target this id and return it as a new state in Redux. In the following line of codes, the id(description) is set to a variable called <i>kop</i> and passed as the new state which is then displayed below the buttons.
                             </br></br> 
-                               
+                                <i>
+                                handleClick(event) {</br>
+                                let kop= event.currentTarget.id</br>
+                                document.getElementById(event.currentTarget.textContent).play()</br>
+                                this.props.submitNewMessage(kop)</br>
+                                }
+                                </i>
                                 
                             
 
