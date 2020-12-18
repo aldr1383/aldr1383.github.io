@@ -136,7 +136,7 @@
                     </div> 
 
                         <!-- Portfolio Item 7-->
-                    <div class="col-md-6 col-lg-4">
+                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
                         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal7">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
@@ -721,7 +721,76 @@ A complete working model was developed in Solidworks CAD software, all specifica
                                       </p>
                                       <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                                    <p class="mb-5 text-left">
+                                    </br>
+                                <b>Project goals</b></br>
+                                    - The calculator should contain 16 clickable elements, the number 0 - 9, add, subtract, multiply, divide, decimal, and clear. </br>
+                                    - At any time, pressing the clear button clears the input and output values, and returns the calculator to its initialized state; 0 should be shown on the display.</br>
+                                    - When = is pressed, the correct result should be displayed.
+                                    - When the decimal element is clicked, . should append to the currently displayed value; two decimals "."" in one number should not be accepted.</br>
+                                    - The calculator should be able to perform any operation (+,-,*,/) on numbers containing decimal points.
+                                    - If 2 or more operators are entered consecutively, the operation performed should be the last operator entered (excluding the negative (-) sign). For example, if 5 + * 7 = is entered, the result should be 35 (i.e. 5 * 7); if 5 * - 5 = is entered, the result should be -25 (i.e. 5 x (-5)). 
+                                    - Pressing an operator immediately following = should start a new calculation that operates on the result of the previous evaluation.</br>
+                                </br>
+                                <b>Solving the problem</b></br>
+                                To create the interface, I created 16 clickable elements and a display.</br>
+                            </br>
+                                 Each buttons are assign to one of the 3 different types of handclick() which dispatches different action creators :</br> 
+                                1. <i>handleClickone(event)</i> dispatches type: ADD for buttons number 0-9.</br>
+                                2. <i>handleClicktwo(event)</i> dispatches type: EQUAL for "="  button.</br>
+                                3. <i>handleClickthree(event)</i> dispatches type: CLEAR for the clear button.</br>
+                                 </br>
+                                <u>type: ADD / handleClickone(event)</u></br>
+
+                                    1 &nbsp; &nbsp; <i>handleClickone(event) {</br>
+                                    2 &nbsp; &nbsp; let regex= /\s\d*\.\d*$|\d*\.\d*$/</br>
+                                    3 &nbsp; &nbsp; if (regex.test(this.props.messages) == false){</br>
+                                    4 &nbsp; &nbsp; this.props.submitNewMessage(event.currentTarget.value)}</br>
+                                    5 &nbsp; &nbsp; else if (event.currentTarget.value != ".") {</br>
+                                    6 &nbsp; &nbsp; this.props.submitNewMessage(event.currentTarget.value)}}</br></i>
+                                    </br>
+                                    The numbers 0 - 9 and the decimal are assigned values equal to themselves (e.q. the button 9 has a value="9"). Upon clicking the element, the value is sent to the action creator as a message (code line 6 and 4) and added to the previous message as a string. The if/else statement inside the reducer prevents the initial state "0" to be included in the final message. </br>
+                                </br>
+                                    To achieve goal / objective 3, a regex is included in the handleCLickone() function. If the computer senses that there is match, it would prevent a new message with the value= "." to be added.</br>
+                            </br>
+                            <u>type: EQUAL / handleClicktwo(event)</u></br>
+
+                                    1 &nbsp; &nbsp; <i>handleClicktwo(event) {</br>
+                                    2 &nbsp; &nbsp; let myRegex = /\W\s[\W\s]+/g;</br>
+                                    3 &nbsp; &nbsp; let myRegextwo = /\s\*\s\-\s/g;</br>
+                                    4 &nbsp; &nbsp; if (myRegex.test(this.props.messages) == true</br>
+                                    5 &nbsp; &nbsp; |myRegextwo.test(this.props.messages) == true) {</br>
+                                    6 &nbsp; &nbsp; let quoteSample = this.props.messages;</br>
+                                    7 &nbsp; &nbsp; let result = quoteSample.match(myRegex);</br>
+                                    8 &nbsp; &nbsp; let resultResult = quoteSample.match(myRegextwo);</br>
+                                    9 &nbsp; &nbsp; let newResult = []</br>
+                                    10 &nbsp; &nbsp;let Regexthree = /\*|\-|\/|\/|\+/g;</br>
+                                    11 &nbsp; &nbsp; let s = result[i].match(Regexthree);</br>
+                                    12 &nbsp; &nbsp;if(s[s.length-1] == "-" ) {</br>
+                                    13 &nbsp; &nbsp;newResult.push(s[s.length-2]);</br>
+                                    14 &nbsp; &nbsp;quoteSample = quoteSample.replace(result[1],newResult[i] + ' - ');}</br>
+                                    15 &nbsp; &nbsp;else {</br>
+                                    16 &nbsp; &nbsp;newResult.push(s[s.length-1]);</br>
+                                    17 &nbsp; &nbsp;quoteSample = quoteSample.replace(result[i],newResult[i]);}</br>
+                                    18 &nbsp; &nbsp;this.props.sumAll(eval(quoteSample))}}</br>
+                                    19 &nbsp; &nbsp;else { </br>                
+                                    20 &nbsp; &nbsp;this.props.sumAll(eval(this.props.messages))} }</br>
+                                </i>
+                                    </br>
+                            
+                                The state is intentially left as a string so that we can use eval() on handleClicktwo(event). This function is prompted by the equal button. The first regex (line 2) is used to identify multiple operators between numbers. The second regex (line 10) identifies multiple operators that ends with "-". If the code senses multiple operators between numbers, it will replace the whole those operators with only the last operator. But, if the last operator is "-", those operators will be replaced with the second to last operator along with the minus sign.</br>
+                                </br>
+                                <u>type: CLEAR / handleClickthree(event)</u></br>
+                                This handleclick is prompted by clicking the clear button. Upon clicking the button the state would be reset to "0".
+
+
+
+
+
+
+
+
+                                    </p>
                                     <button class="btn btn-primary" data-dismiss="modal">
                                         <i class="fas fa-times fa-fw"></i>
                                         Close Window
