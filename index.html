@@ -822,7 +822,7 @@ A complete working model was developed in Solidworks CAD software, all specifica
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal8Label">Submarine</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal8Label">D3 Bar Chart</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -830,10 +830,34 @@ A complete working model was developed in Solidworks CAD software, all specifica
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image-->
-                                    <p class="codepen" data-height="434" data-theme-id="light" data-default-tab="result" data-user="aldr1383" data-slug-hash="rNMpYoE" style="height: 434px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="D3 Bar Chart">
+                                    <p class="codepen" data-height="376" data-theme-id="light" data-default-tab="result" data-user="aldr1383" data-slug-hash="rNMpYoE" style="height: 376px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="D3 Bar Chart">
                                         <span>See the Pen <a href="https://codepen.io/aldr1383/pen/rNMpYoE">
+                                        D3 Bar Chart</a> by aldr1383 (<a href="https://codepen.io/aldr1383">@aldr1383</a>)
+                                        on <a href="https://codepen.io">CodePen</a>.</span>
+                                      </p>
+                                      <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                                    <p class="mb-5 text-left"></br>
+                                    <b>Project Goals</b></br>
+                                    - Extract JSON data from the following link and create a GDP vs year bar chart.</br> <i>https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json</i></br>
+                                    - The chart should have a y-axis (GDP) and an x-axis (x-axis)
+                                    - When a user hovers his or her mouse on the bar chart, a tooltip will appear showing specific information of the data.</br>
+                                    </br>
+                                    <b>Solving the problem</b></br></br>
+                                    var xhReq = new XMLHttpRequest();</br>
+                                    xhReq.open("GET", 'https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json', false);</br>
+                                    xhReq.send(null); </br>
+                                    var dataset = JSON.parse(xhReq.responseText).data;</br></br>
+
+                                    The code above was used to obtain the JSON data. The JSON data provided was in an object form. The data of interest is the value of the data key in the object. 
+                                
+
+                                    
+
+
+
+
+                                    </p>
                                     <button class="btn btn-primary" data-dismiss="modal">
                                         <i class="fas fa-times fa-fw"></i>
                                         Close Window

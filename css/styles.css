@@ -10244,4 +10244,7 @@ form .row:first-child .floating-label-form-group {
   background-color: #1a252f;
 }
 
+.highlight {
+  background-color : grey
+}
 
