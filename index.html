@@ -126,7 +126,7 @@
                         </div>
                     </div>
                         <!-- Portfolio Item 6-->
-                    <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
+                    <div class="col-md-6 col-lg-4 mb-5">
                         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal6">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
@@ -145,12 +145,12 @@
                         </div>
                     </div> 
                     <!-- Portfolio Item 8-->
-                        <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="col-md-6 col-lg-4">
                              <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal8">
                                   <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                             <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                       </div>
-                     <img class="img-fluid" src="assets/img/portfolio/project2/project2pic1.png" alt="" />
+                     <img class="img-fluid" src="assets/img/portfolio/project 8/project 8 pic.png" alt="" />
                       </div>
                     </div>
 
@@ -837,21 +837,37 @@ A complete working model was developed in Solidworks CAD software, all specifica
                                       </p>
                                       <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-5 text-left"></br>
-                                    <b>Project Goals</b></br>
-                                    - Extract JSON data from the following link and create a GDP vs year bar chart.</br> <i>https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json</i></br>
-                                    - The chart should have a y-axis (GDP) and an x-axis (x-axis)
+                                    <p class="mb-5 text-left">
+                                    </br>
+                                <b>Project goals</b></br>
+                                - Extract JSON data from the following link and create a GDP vs year bar chart.</br> 
+                                      <mark class="text-center"> https://raw.githubusercontent.com/freeCodeCamp/</br>ProjectReferenceData/master/GDP-data.json</br></mark>
+                                    - The chart should have a y-axis (GDP) and an x-axis (x-axis)</br>
                                     - When a user hovers his or her mouse on the bar chart, a tooltip will appear showing specific information of the data.</br>
                                     </br>
-                                    <b>Solving the problem</b></br></br>
-                                    var xhReq = new XMLHttpRequest();</br>
-                                    xhReq.open("GET", 'https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json', false);</br>
+    
+                                </br>
+                               
+
+
+
+
+                 
+
+                        
+                                    <b>Solving the problem</b></br>
+                                    <u>Accessing the data</u></br>
+                                    <mark>var xhReq = new XMLHttpRequest();</br>
+                                    xhReq.open("GET", 'https://raw.githubusercontent.com/</br>
+                                    freeCodeCamp/ProjectReferenceData/master/GDP-data.json', false);</br>
                                     xhReq.send(null); </br>
-                                    var dataset = JSON.parse(xhReq.responseText).data;</br></br>
-
-                                    The code above was used to obtain the JSON data. The JSON data provided was in an object form. The data of interest is the value of the data key in the object. 
-                                
-
+                                    var dataset = JSON.parse(xhReq.responseText).data;</mark></br></br>
+                                    The code above was used to obtain the JSON data. The JSON data provided was in an object form. The data of interest is the value of the data key in the object.</br></br>
+                                    The data was saved in the variable dataset to be used in the Javascript code. </br></br>
+                                    <u>Creating the axis</u></br>
+                                    const yScale = d3.scaleLinear()
+                                    .domain([0, d3.max(dataset, (d,i) => d[1])])
+                                    .range([h- padding, padding]);
                                     
 
 
