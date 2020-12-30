@@ -841,7 +841,7 @@ A complete working model was developed in Solidworks CAD software, all specifica
                                     </br>
                                 <b>Project goals</b></br>
                                 - Extract JSON data from the following link and create a GDP vs year bar chart.</br> 
-                                      <mark class="text-center"> https://raw.githubusercontent.com/</br>freeCodeCamp/ProjectReferenceData/master/GDP-data.json</br></mark>
+                                      <mark class="text-center"> https://raw.githubusercontent.com/</br>freeCodeCamp/ProjectReferenceData/</br>master/GDP-data.json</br></mark>
                                     - The chart should have a y-axis (GDP) and an x-axis (x-axis)</br>
                                     - When a user hovers his or her mouse on the bar chart, a tooltip will appear showing specific information of the data.</br>
                                     </br>
@@ -859,13 +859,13 @@ A complete working model was developed in Solidworks CAD software, all specifica
                                     <u>Accessing the data</u></br>
                                     <mark>var xhReq = new XMLHttpRequest();</br>
                                     xhReq.open("GET", 'https://raw.githubusercontent</br>.com/
-                                    freeCodeCamp/ProjectReferenceData/master/GDP-data.json', false);</br>
+                                    freeCodeCamp/ProjectReferenceData/</br>master/GDP-data.json', false);</br>
                                     xhReq.send(null); </br>
                                     var dataset = JSON.parse(xhReq.responseText).data;</mark></br></br>
                                     The code above was used to obtain the JSON data. The JSON data provided was in an object form. The data of interest is the value of the data key in the object.</br></br>
                                     The data was saved in the variable dataset to be used in the Javascript code. </br></br>
                                     <u>Scaling the data and creating the axis</u></br>
-                                    There are 3 
+                                    Although there are 2 data that needs to be scaled (GDP and year), I created three scales, xScale, Yscale and YearScale. </br>
                                     
                                     const yScale = d3.scaleLinear()
                                     .domain([0, d3.max(dataset, (d,i) => d[1])])
