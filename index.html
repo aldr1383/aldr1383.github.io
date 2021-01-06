@@ -866,10 +866,23 @@ A complete working model was developed in Solidworks CAD software, all specifica
                                     The data was saved in the variable dataset to be used in the Javascript code. </br></br>
                                     <u>Scaling the data and creating the axis</u></br>
                                     Although there are 2 data that needs to be scaled (GDP and year), I created three scales, xScale, Yscale and YearScale. </br>
+                                    </br>
+                                    Y-scale</br>
+                                    <mark>
+                                    const yScale = d3.scaleLinear()</br>
+                                    .domain([0, d3.max(dataset, (d,i) => d[1])])</br>
+                                    .range([h- padding, padding]);</br>
+                                    </br></mark>
+                                    Y-scale scales the GDP according to the size of the bar chart minus the padding. It goes from 0 to the maximum GDP. </br>
+                                    </br>
+                                    Year-scale</br><mark>
+                                    const yearScale = d3.scaleLinear()</br>
+                                    .domain([d3.min(year, (d,i) =>d),d3.max(year, (d,i) => d)])</br>
+                                    .range([padding,w-padding]);</br></mark></br>
+                                    Year-scale was used to create the Y-axis. To position each bar, I created a constant width factor. </br>
                                     
-                                    const yScale = d3.scaleLinear()
-                                    .domain([0, d3.max(dataset, (d,i) => d[1])])
-                                    .range([h- padding, padding]);
+                                    The width factor is used to determine the width of each bar and its position.
+                                    </br><mark>const widthFactor = (w - 2*padding)/dataset.length</mark>. </br>
                                     
 
                                     
