@@ -154,6 +154,16 @@
                       </div>
                     </div>
 
+                    <!-- Portfolio Item 9-->
+                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal9">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="assets/img/portfolio/project 9/project_9_pic.png" alt="" />
+                        </div>
+                    </div>
+
 
 
                     <!--PORTFOLIO EXAMPLES-->
@@ -902,6 +912,100 @@ A complete working model was developed in Solidworks CAD software, all specifica
                 </div>
             </div>
         </div>
+
+
+            <!-- Portfolio Modal 9-->
+            <div class="portfolio-modal modal fade" id="portfolioModal9" tabindex="-1" role="dialog" aria-labelledby="portfolioModal9Label" aria-hidden="true">
+                <div class="modal-dialog modal-xl" role="document">
+                    <div class="modal-content">
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                        </button>
+                        <div class="modal-body text-center">
+                            <div class="container">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-8">
+                                        <!-- Portfolio Modal - Title-->
+                                        <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal9Label">D3 Scatter Plot</h2>
+                                        <!-- Icon Divider-->
+                                        <div class="divider-custom">
+                                            <div class="divider-custom-line"></div>
+                                            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                            <div class="divider-custom-line"></div>
+                                        </div>
+                                        <!-- Portfolio Modal - Image-->
+                                        <p class="codepen" data-height="394" data-theme-id="light" data-default-tab="result" data-user="aldr1383" data-slug-hash="YzGBgOy" style="height: 394px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Free Code Camp ScatterPlot Project">
+                                            <span>See the Pen <a href="https://codepen.io/aldr1383/pen/YzGBgOy">
+                                            Free Code Camp ScatterPlot Project</a> by aldr1383 (<a href="https://codepen.io/aldr1383">@aldr1383</a>)
+                                            on <a href="https://codepen.io">CodePen</a>.</span>
+                                          </p>
+                                          <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+                                        <!-- Portfolio Modal - Text-->
+                                        <p class="mb-5 text-left">
+                                        </br>
+                                    <b>Project goals</b></br>
+                                    - Extract JSON data from the following link and create a GDP vs year bar chart.</br> 
+                                          <mark class="text-center"> https://raw.githubusercontent.com/</br>freeCodeCamp/ProjectReferenceData/</br>master/GDP-data.json</br></mark>
+                                        - The chart should have a y-axis (GDP) and an x-axis (x-axis)</br>
+                                        - When a user hovers his or her mouse on the bar chart, a tooltip will appear showing specific information of the data.</br>
+                                        </br>
+        
+                                    </br>
+                                   
+    
+    
+    
+    
+                     
+    
+                            
+                                        <b>Solving the problem</b></br>
+                                        <u>Accessing the data</u></br>
+                                        <mark>var xhReq = new XMLHttpRequest();</br>
+                                        xhReq.open("GET", 'https://raw.githubusercontent</br>.com/
+                                        freeCodeCamp/ProjectReferenceData/</br>master/GDP-data.json', false);</br>
+                                        xhReq.send(null); </br>
+                                        var dataset = JSON.parse(xhReq.responseText).data;</mark></br></br>
+                                        The code above was used to obtain the JSON data. The JSON data provided was in an object form. The data of interest is the value of the data key in the object.</br></br>
+                                        The data was saved in the variable dataset to be used in the Javascript code. </br></br>
+                                        <u>Scaling the data and creating the axis</u></br>
+                                        Although there are 2 data that needs to be scaled (GDP and year), I created three scales, xScale, Yscale and YearScale. </br>
+                                        </br>
+                                        Y-scale</br>
+                                        <mark>
+                                        const yScale = d3.scaleLinear()</br>
+                                        .domain([0, d3.max(dataset, (d,i) => d[1])])</br>
+                                        .range([h- padding, padding]);</br>
+                                        </br></mark>
+                                        Y-scale scales the GDP according to the size of the bar chart minus the padding. It goes from 0 to the maximum GDP. </br>
+                                        </br>
+                                        Year-scale</br><mark>
+                                        const yearScale = d3.scaleLinear()</br>
+                                        .domain([d3.min(year, (d,i) =>d),d3.max(year, (d,i) => d)])</br>
+                                        .range([padding,w-padding]);</br></mark></br>
+                                        Year-scale was used to create the Y-axis. To position each bar, I created a constant width factor. </br>
+                                        
+                                        The width factor is used to determine the width of each bar and its position.
+                                        </br><mark>const widthFactor = (w - 2*padding)/dataset.length</mark>. </br>
+                                        
+    
+                                        
+    
+    
+    
+    
+                                        </p>
+                                        <button class="btn btn-primary" data-dismiss="modal">
+                                            <i class="fas fa-times fa-fw"></i>
+                                            Close Window
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
 
