@@ -851,7 +851,7 @@ A complete working model was developed in Solidworks CAD software, all specifica
                                     </br>
                                 <b>Project goals</b></br>
                                 - Extract JSON data from the following link and create a GDP vs year bar chart.</br> 
-                                      <mark class="text-center"> https://raw.githubusercontent.com/</br>freeCodeCamp/ProjectReferenceData/</br>master/GDP-data.json</br></mark>
+                                      <code> https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json</br></code>
                                     - The chart should have a y-axis (GDP) and an x-axis (x-axis)</br>
                                     - When a user hovers his or her mouse on the bar chart, a tooltip will appear showing specific information of the data.</br>
                                     </br>
@@ -867,32 +867,32 @@ A complete working model was developed in Solidworks CAD software, all specifica
                         
                                     <b>Solving the problem</b></br>
                                     <u>Accessing the data</u></br>
-                                    <mark>var xhReq = new XMLHttpRequest();</br>
+                                    <code>var xhReq = new XMLHttpRequest();</br>
                                     xhReq.open("GET", 'https://raw.githubusercontent</br>.com/
                                     freeCodeCamp/ProjectReferenceData/</br>master/GDP-data.json', false);</br>
                                     xhReq.send(null); </br>
-                                    var dataset = JSON.parse(xhReq.responseText).data;</mark></br></br>
+                                    var dataset = JSON.parse(xhReq.responseText).data;</code></br></br>
                                     The code above was used to obtain the JSON data. The JSON data provided was in an object form. The data of interest is the value of the data key in the object.</br></br>
                                     The data was saved in the variable dataset to be used in the Javascript code. </br></br>
                                     <u>Scaling the data and creating the axis</u></br>
                                     Although there are 2 data that needs to be scaled (GDP and year), I created three scales, xScale, Yscale and YearScale. </br>
                                     </br>
                                     Y-scale</br>
-                                    <mark>
+                                    <code>
                                     const yScale = d3.scaleLinear()</br>
                                     .domain([0, d3.max(dataset, (d,i) => d[1])])</br>
                                     .range([h- padding, padding]);</br>
-                                    </br></mark>
+                                    </br></code>
                                     Y-scale scales the GDP according to the size of the bar chart minus the padding. It goes from 0 to the maximum GDP. </br>
                                     </br>
-                                    Year-scale</br><mark>
+                                    Year-scale</br><code>
                                     const yearScale = d3.scaleLinear()</br>
                                     .domain([d3.min(year, (d,i) =>d),d3.max(year, (d,i) => d)])</br>
-                                    .range([padding,w-padding]);</br></mark></br>
+                                    .range([padding,w-padding]);</br></code></br>
                                     Year-scale was used to create the Y-axis. To position each bar, I created a constant width factor. </br>
                                     
                                     The width factor is used to determine the width of each bar and its position.
-                                    </br><mark>const widthFactor = (w - 2*padding)/dataset.length</mark>. </br>
+                                    </br><code>const widthFactor = (w - 2*padding)/dataset.length</code>. </br>
                                     
 
                                     
@@ -944,9 +944,9 @@ A complete working model was developed in Solidworks CAD software, all specifica
                                         <p class="mb-5 text-left">
                                         </br>
                                     <b>Project goals</b></br>
-                                    - Extract JSON data from the following link and create a GDP vs year bar chart.</br> 
-                                          <mark class="text-center"> https://raw.githubusercontent.com/</br>freeCodeCamp/ProjectReferenceData/</br>master/GDP-data.json</br></mark>
-                                        - The chart should have a y-axis (GDP) and an x-axis (x-axis)</br>
+                                    - Extract JSON data from the following link and create a year vs time scatter plot.</br> 
+                                          <code> https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/cyclist-data.json</br></code>
+                                        - The chart should have a y-axis (time) with %M:%S format and an x-axis (year)</br>
                                         - When a user hovers his or her mouse on the bar chart, a tooltip will appear showing specific information of the data.</br>
                                         </br>
         
@@ -961,38 +961,104 @@ A complete working model was developed in Solidworks CAD software, all specifica
                             
                                         <b>Solving the problem</b></br>
                                         <u>Accessing the data</u></br>
-                                        <mark>var xhReq = new XMLHttpRequest();</br>
-                                        xhReq.open("GET", 'https://raw.githubusercontent</br>.com/
-                                        freeCodeCamp/ProjectReferenceData/</br>master/GDP-data.json', false);</br>
-                                        xhReq.send(null); </br>
-                                        var dataset = JSON.parse(xhReq.responseText).data;</mark></br></br>
-                                        The code above was used to obtain the JSON data. The JSON data provided was in an object form. The data of interest is the value of the data key in the object.</br></br>
-                                        The data was saved in the variable dataset to be used in the Javascript code. </br></br>
-                                        <u>Scaling the data and creating the axis</u></br>
-                                        Although there are 2 data that needs to be scaled (GDP and year), I created three scales, xScale, Yscale and YearScale. </br>
-                                        </br>
-                                        Y-scale</br>
-                                        <mark>
-                                        const yScale = d3.scaleLinear()</br>
-                                        .domain([0, d3.max(dataset, (d,i) => d[1])])</br>
-                                        .range([h- padding, padding]);</br>
-                                        </br></mark>
-                                        Y-scale scales the GDP according to the size of the bar chart minus the padding. It goes from 0 to the maximum GDP. </br>
-                                        </br>
-                                        Year-scale</br><mark>
-                                        const yearScale = d3.scaleLinear()</br>
-                                        .domain([d3.min(year, (d,i) =>d),d3.max(year, (d,i) => d)])</br>
-                                        .range([padding,w-padding]);</br></mark></br>
-                                        Year-scale was used to create the Y-axis. To position each bar, I created a constant width factor. </br>
+                                        <code>let url = "https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/cyclist-data.json" </br>
+                                        let values =[] </br>
+                                        let req = new XMLHttpRequest()
+                                        req.open('GET',url,true)</br>
+                                        req.onload= () => {</br>
+                                        values = JSON.parse(req.responseText)</br>
+                                        console.log(values)</br>
+                                        drawCanvas()</br>
+                                        generateScales()</br>
+                                        drawPoints()</br>
+                                        generateAxes()</br>
+                                        generateLegend()</br>
+                                        }</br>
+                                        req.send()</code> </br> </br>
+                                        To obtain the data, I used <code> XMLHttpRequest</code> method and placed it inside the variable <code> values </code>.  
+
+                                        </br></br>
+                                        <u>Creating the canvas</u></br>
+                                        One of the first thing I did was creating setting the width and height to the svg.</br>
+                                        <code>
+                                        let drawCanvas = () => { </br>
+                                            svg.attr('width',width)</br>
+                                            svg.attr('height',height)</br>
+                                        }</code>
+                                    </br>
+                                </br>
+                                <u>Generating the scales</u></br>
+                                There are two scales that we used in the project, x-scale and y-scale. x-scale The X-scale scales the year according to the width of the x axis <code>.range([padding,width-padding])</code>. The Y-scale scales time to the height of the y-axis. Since time is in a time format the following code is used , <code>new Date(item['Seconds']*1000)</code>.</br></br>
+                                <code>
+                                    let generateScales = () => {</br>
+                                        xScale = d3.scaleLinear()</br>
+                                                    .domain([d3.min(values, (item) => {</br>
+                                                        return item['Year'] -1</br>
+                                                    }),  d3.max(values, (item) => {</br>
+                                                        return item['Year'] + 1</br>
+                                                    }) ])</br>
+                                                    .range([padding,width-padding])</br>
+                                              
+                                        yScale = d3.scaleTime()</br>
+                                                    .domain([d3.min(values, (item)=> {</br>
+                                                        return new Date(item['Seconds']*1000)</br>
+                                                    }),d3.max(values, (item)=> {</br>
+                                                        return new Date(item['Seconds']*1000)</br>
+                                                    })
+                                                
+                                                ])</br>
+                                                    .range([padding, height-padding])</br>
+                                    }</br>
+
+                                </code></br>
+                                <u>Generating the axes</u></br>
+                                The code <code>.tickFormat(d3.format('d'))</code> is used to erase the , from the year values on the x-axis. The code <code>.tickFormat(d3.timeFormat('%M:%S'))</code> is used to set the y-axis in a minute:second format. </br>
+                                <code></br>
+                                    let generateAxes = () => {</br>
+
+                                        let xAxis = d3.axisBottom(xScale)</br>
+                                                        .tickFormat(d3.format('d'))</br>
+                                        let yAxis = d3.axisLeft(yScale)</br>
+                                                        .tickFormat(d3.timeFormat('%M:%S'))</br>
+                                    
+                                        svg.append('g')</br>
+                                            .call(xAxis)</br>
+                                            .attr('id','x-axis')</br>
+                                            .attr('transform','translate(0,'+ (height - padding)+ ')')</br>
+                                    
+                                        svg.append('g')</br>
+                                            .call(yAxis)</br>
+                                            .attr('id','y-axis')</br>
+                                            .attr('transform','translate('+ padding +',0)')</br>
+                                    } </br>
+                                </code>
+                            </br>
+                             <u>Generating the legend</u></br>
+                            </br>
+                            To create the legend, I the following text to the svg.
+                             <code>
+                                let generateLegend = () => {</br>
+                                    svg.append("text")</br>
+                                        .attr("id","legend")</br>
+                                        .attr("x", 250 )</br>
+                                        .attr("y", 100 )</br>
+                                        .text("YEAR (X) vs TIME (Y) ")</br>
+                                
+                                        svg.append("text")</br>
+                                        .attr("id","legend")</br>
+                                        .attr("x", 250 )</br>
+                                        .attr("y", 110 )</br>
+                                        .text("Orange : Doping Allegation")</br>
                                         
-                                        The width factor is used to determine the width of each bar and its position.
-                                        </br><mark>const widthFactor = (w - 2*padding)/dataset.length</mark>. </br>
-                                        
-    
-                                        
-    
-    
-    
+                                        svg.append("text")</br>
+                                        .attr("id","legend")</br>
+                                        .attr("x", 250 )</br>
+                                        .attr("y", 120 )</br>
+                                        .text("Green : No Doping Allegation")</br>
+                                }
+                             </code>
+                             
+                               
     
                                         </p>
                                         <button class="btn btn-primary" data-dismiss="modal">
