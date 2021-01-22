@@ -164,6 +164,16 @@
                         </div>
                     </div>
 
+                     <!-- Portfolio Item 10-->
+                     <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal10">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="assets/img/portfolio/project 10/porject10pic.png" alt="" />
+                        </div>
+                    </div> 
+
 
 
                     <!--PORTFOLIO EXAMPLES-->
@@ -1073,7 +1083,79 @@ A complete working model was developed in Solidworks CAD software, all specifica
                 </div>
             </div>
 
+<!-- Portfolio Modal 10-->
+<div class="portfolio-modal modal fade" id="portfolioModal10" tabindex="-1" role="dialog" aria-labelledby="portfolioModal10Label" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true"><i class="fas fa-times"></i></span>
+            </button>
+            <div class="modal-body text-center">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <!-- Portfolio Modal - Title-->
+                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal10Label">D3 Heat Map</h2>
+                            <!-- Icon Divider-->
+                            <div class="divider-custom">
+                                <div class="divider-custom-line"></div>
+                                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                <div class="divider-custom-line"></div>
+                            </div>
+                            <!-- Portfolio Modal - random quote generator app from codepen-->
+                            <p class="codepen" data-height="782" data-theme-id="light" data-default-tab="result" data-user="aldr1383" data-slug-hash="XWjwabY" style="height: 782px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Heat Map Free Code Camp">
+                                <span>See the Pen <a href="https://codepen.io/aldr1383/pen/XWjwabY">
+                                Heat Map Free Code Camp</a> by aldr1383 (<a href="https://codepen.io/aldr1383">@aldr1383</a>)
+                                on <a href="https://codepen.io">CodePen</a>.</span>
+                              </p>
+                              <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script></br>
+                           
+                            <!-- Portfolio Modal - Text-->
+                            <p class="mb-5 text-left">  <b>Languages</b></br>
+                                                        Javascript, React, Redux, CSS, and HTML.</br>
+                                                        </br> 
+                                                        <b>Project goals</b></br>
+                                                        - Create a random quote generator using react and redux</br>
+                                                        - When page is first loaded, the quote shown has to be random.</br>
+                                                        
+                                                        </br>
+                                                        <b>Results</b></br>
+                                                        Having not enough experience in building applications, I had a hard time trying to set react and redux. I am still finding my ways around VS CODE, so I used codepen instead. Turns it worked pretty well and the embed feature is definitely a bonus.</br></br>
+                                                        I used javascript Math.random function and used the that function in the original state to achieve goal number to. You can see  that this works if you reload this page or click the rerun button on the bottom of the display. </br>
+                                                        The second problem which I found interesting was the code is not supposed to be completely random. There is a caveat, it cannot repeat itself. So, to solve this, I included an if statement in the variable quoteChange.</br></br>
+                                                        
+                                                        Here is the quotechanger constant which you can find in the js script.</br></br>
+                                                        let m = Math.floor(Math.random()*quote.length)
+                                                        const quoteChanger = (state = m, action) => {</br>
+                                                        let random = Math.floor(Math.random()*quote.length)</br>
+                                                        if (random != m) {</br>
+                                                        m = random;</br>
+                                                        return quote[m]</br>
+                                                        }</br>
+                                                        else {</br>
+                                                            while (random == m) {</br>
+                                                              random = Math.floor(Math.random()*quote.length) </br>
+                                                            }</br>
+                                                           m = random;</br>
+                                                            return quote[m];</br>
+                                                         }</br>
+                                                        };</br> </br>
+                                                        
+                                                        
 
+                                                    
+                                                    </p>
+                            <button class="btn btn-primary" data-dismiss="modal">
+                                <i class="fas fa-times fa-fw"></i>
+                                Close Window
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
         <!-- modal example -->
         <!-- Portfolio Modal 6-->
