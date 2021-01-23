@@ -1111,37 +1111,84 @@ A complete working model was developed in Solidworks CAD software, all specifica
                               <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script></br>
                            
                             <!-- Portfolio Modal - Text-->
-                            <p class="mb-5 text-left">  <b>Languages</b></br>
-                                                        Javascript, React, Redux, CSS, and HTML.</br>
-                                                        </br> 
+                            <p class="mb-5 text-left">  
                                                         <b>Project goals</b></br>
-                                                        - Create a random quote generator using react and redux</br>
-                                                        - When page is first loaded, the quote shown has to be random.</br>
-                                                        
-                                                        </br>
-                                                        <b>Results</b></br>
-                                                        Having not enough experience in building applications, I had a hard time trying to set react and redux. I am still finding my ways around VS CODE, so I used codepen instead. Turns it worked pretty well and the embed feature is definitely a bonus.</br></br>
-                                                        I used javascript Math.random function and used the that function in the original state to achieve goal number to. You can see  that this works if you reload this page or click the rerun button on the bottom of the display. </br>
-                                                        The second problem which I found interesting was the code is not supposed to be completely random. There is a caveat, it cannot repeat itself. So, to solve this, I included an if statement in the variable quoteChange.</br></br>
-                                                        
-                                                        Here is the quotechanger constant which you can find in the js script.</br></br>
-                                                        let m = Math.floor(Math.random()*quote.length)
-                                                        const quoteChanger = (state = m, action) => {</br>
-                                                        let random = Math.floor(Math.random()*quote.length)</br>
-                                                        if (random != m) {</br>
-                                                        m = random;</br>
-                                                        return quote[m]</br>
-                                                        }</br>
-                                                        else {</br>
-                                                            while (random == m) {</br>
-                                                              random = Math.floor(Math.random()*quote.length) </br>
+                                                        -  Create a heat map representing variance based on year and month</br>
+                                                        -  X-axis represents year and Y-axis represents month</br>
+                                                        -  The heat map should consist of 9 colours representing different variances throughout the year.</br>
+                                                        -  The heat map consists of a legend showing what different color represents</br></br>
+                                                        <b>Solving the problem</b></br>
+                                                        <u>Organizing the data</u></br>
+                                                        JSON data : <code>https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/global-temperature.json</code></br>
+                            </br>
+                                                        Most of the data is inside the key "monthlyVariance" consisting the year, month, and variance. For easy access I created its own variable <code>monthlyVariance</code>. The entire code is stored inside the variable <code>data</code>.</br>
+                            </br>
+                                                        <code>
+                                                            req.onload= () => {</br>
+                                                                monthlyVariance = JSON.parse(req.responseText)["monthlyVariance"]</br>
+                                                                data = JSON.parse(req.responseText)</br>
+                                                                console.log(monthlyVariance)</br>
+                                                                drawCanvas()</br>
+                                                                generateScales()</br>
+                                                                drawPoints()</br>
+                                                                generateAxes()</br>
+                                                                generateDescription()</br>
                                                             }</br>
-                                                           m = random;</br>
-                                                            return quote[m];</br>
-                                                         }</br>
-                                                        };</br> </br>
+
+                                                        </code></br>
+                                                        <u>Creating the Y-axis in time format</u></br>
+                                                        The first step to creating the Y-axis is to create a yScale. We want to store the data as <code>new Date</code>. The syntax for new Date is <code> new Date(year, month, day, hour, minutes, second, millisecond)</code>. After observing the JSON data, the data goes from January to December. In Javascript the first month starts at 0 and ends at 11. For the domain, I put 0 as the minimum and 12 as the maximum month for modification to the svg.
+                                                        </br>
+                                                         </br>
+                                                        <code>
+                                                            yScale = d3.scaleTime()</br>
+                                                                        .domain([new Date(0, 0, 0 ,0 ,0 ,0, 0), new Date(0, 12, 0 ,0 ,0 ,0, 0)])</br>
+                                                                        .range([padding+23, height-padding])</br>
+                                                        </code>
+                                                        </br>
+                                                        </br>
+                                                        After creating the yScale, I created an axis called yAxis. Because we entered the domain in a time format. We can use <code>d3.timeFormat('%B')</code> to modify the tick of the y-axis to have a format of January, February, etc and not in number format (1,2,3,...) as stated in the JSON data.
+                                                        </br>
+                                                        </br>
+                                                        <code>
+                                                            let yAxis = d3.axisLeft(yScale)</br>
+                                                            .tickFormat(d3.timeFormat('%B'))</br>
+                                                        </code>
+                                                         </br>
+                                                        </br>
+                                                        <u>Creating the legend</u></br>
+                                                        To create the legend, I created another svg with the id = legend and store it inside the variable svglegend. Since I will use <code>rect</code> elements to show the colors. The first thing that I created is a scale for the axis used in the legend. Since there are 10 colors, the minimum and maximum domain value are simply 1 and 10.</br>
+                                                    </br>
+                                                <code>
+                                                legendScale = d3.scaleLinear()</br>
+                                                .domain([1,10])</br>
+                                                .range([padding,width-padding])    </br>                
+                                                }</br>
+                                                </code></br>
+                                                After creating the scale, I created the legend axis. We would like the tick to show the actual temperature and not the variance. To modify the ticks I used <code>.tickFormat</code>.</br> </br>There are three variables that we used: </br>1. <code>data["baseTemperature"]</code> which is the base temperature</br>2. <code>let varianceMin = d3.min(monthlyVariance, (item) => {
+                                                    return item['variance']});</code></br> Which is the minimum variance from the data.</br> 3. <code>let varianceRange = (d3.max(monthlyVariance, (item) => {
+                                                        return item['variance']}) - d3.min(monthlyVariance, (item) => {
+                                                            return item['variance']}))/9;</code> </br></br>
+
+                                                            <code>
+                                                                let legendAxis = d3.axisBottom(legendScale)</br>
+                                                                .tickFormat(function(d, i) {</br>
+                                                            return (data["baseTemperature"] + varianceMin + (d*varianceRange)).toFixed(2) ;</br>
+                                                            })</br>
+
+                                                            </code>
+                                                        </br>
+
+                                                        the fill attribute is then used specify the  different colors.
+
                                                         
+
                                                         
+
+
+
+
+                                                         
 
                                                     
                                                     </p>
